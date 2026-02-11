@@ -61,11 +61,36 @@
   text-align:center;
   cursor:pointer;
   transition:0.3s;
+  font-weight:bold;
 }
 
 .card:hover{
   background:#00e676;
   color:black;
+}
+
+/* Instagram Buton */
+.insta-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 25px;
+  border-radius:30px;
+  font-weight:bold;
+  text-decoration:none;
+  color:white;
+  background:linear-gradient(
+    45deg,
+    #feda75,
+    #fa7e1e,
+    #d62976,
+    #962fbf,
+    #4f5bd5
+  );
+  transition:0.3s;
+}
+
+.insta-btn:hover{
+  transform:scale(1.05);
 }
 
 </style>
@@ -83,6 +108,7 @@
 <div class="card" onclick="openModal('baslangic')">Başlangıç Programı</div>
 <div class="card" onclick="openModal('yag')">🔥 Yağ Yakımı</div>
 <div class="card" onclick="openModal('kas')">Kas Geliştirme</div>
+<div class="card" onclick="openModal('kocluk')">👤 Kişisel Koçluk</div>
 </div>
 </section>
 
@@ -102,7 +128,7 @@ const body = document.getElementById("programBody");
 if(type === "baslangic"){
 body.innerHTML = `
 <h2>🏋️ Başlangıç Programı</h2>
-<p><strong>Haftada 4-5 Gün</strong></p>
+Haftada 4-5 Gün<br><br>
 
 Lat pulldown — 3x12<br>
 Seated low row — 3x12<br>
@@ -115,8 +141,7 @@ Leg extension — 3x12<br>
 Leg curl — 3x12<br>
 Hanging leg raise — 4 set tükeniş<br><br>
 
-🔥 30-45 dk kardiyo<br>
-Incline: 15 | Speed: 5
+🔥 30-45 dk kardiyo (Incline 15 / Speed 5)
 `;
 }
 
@@ -125,29 +150,12 @@ body.innerHTML = `
 <h2>🔥 Yağ Yakımı Programı</h2>
 12-15 tekrar | 30-45 sn dinlenme<br><br>
 
-🟢 Pazartesi – Sırt + Arka Kol<br>
-Lat pulldown 4x12<br>
-Rope pushdown 4x15 (SS)<br>
-Dumbbell row 3x12<br>
-Close grip pushdown 3x15 (SS)<br>
-Straight arm pulldown 3x15<br><br>
+Pazartesi – Sırt + Arka Kol<br>
+Salı – Omuz + Ön Kol<br>
+Perşembe – Bacak<br>
+Cuma – Göğüs<br><br>
 
-🟢 Salı – Omuz + Ön Kol<br>
-Shoulder press 4x12<br>
-Lateral + Front raise 3x15 (SS)<br>
-Rear delt + Barbell curl 3x12 (SS)<br>
-Preacher curl 3x12<br><br>
-
-🟢 Perşembe – Bacak<br>
-Hack squat 4x12<br>
-Leg extension + Leg curl 3x15 (SS)<br>
-Walking lunge 3 tur<br>
-Leg press + Calf raise 3x15<br><br>
-
-🟢 Cuma – Göğüs<br>
-Incline bench 4x12<br>
-Incline fly + Butterfly 3x15 (SS)<br>
-Bench press 3x10
+Yağ yakımı için protein yüksek tut ve kalori açığı oluştur.
 `;
 }
 
@@ -155,32 +163,33 @@ if(type === "kas"){
 body.innerHTML = `
 <h2>💪 Kas Geliştirme Programı</h2>
 
-🟦 Pazartesi (Göğüs + Omuz + Triceps)<br>
-Plate Chest Press 2x5-6 (RIR1)<br>
-Smith Incline 2x5-6 (RIR1)<br>
-Chest Fly 1x6-8 (Failure)<br>
-Shoulder Press 2x5-6<br>
-Lateral Raise 3x8-10<br>
-Triceps Pushdown 2x6-8<br>
-Overhead Rope 2x8-10<br><br>
+Pazartesi: Göğüs + Omuz + Triceps<br>
+Salı: Sırt + Biceps<br>
+Çarşamba: Bacak<br>
+Cuma: Göğüs + Omuz + Triceps<br>
+Cumartesi: Sırt + Biceps + Bacak<br><br>
 
-🟦 Salı (Sırt + Biceps)<br>
-Lat Pulldown 2x6-8<br>
-Wide Grip Row 3x6-8<br>
-Cable Row 1x8-10<br>
-Dumbbell Curl 2x6-8<br>
-Cable Curl 2x6-8<br>
-Hammer + Reverse Curl 2x8-10 SS<br><br>
-
-🟦 Çarşamba (Bacak)<br>
-Leg Press 2x6-8<br>
-Smith Squat 2x6-8<br>
-Leg Extension 2x8-10<br>
-Seated Leg Curl 3x8-10<br><br>
-
-🔹 RIR Açıklama:<br>
+RIR Sistemi uygulanır.<br>
 RIR 1 = 1 tekrar kalmış<br>
 RIR 0 = Failure
+`;
+}
+
+if(type === "kocluk"){
+body.innerHTML = `
+<h2>👤 Kişisel Koçluk</h2>
+
+Size özel birebir online koçluk sistemi.<br>
+• Beslenme planı<br>
+• Haftalık program güncelleme<br>
+• Performans takibi<br>
+• WhatsApp destek<br><br>
+
+Aşağıdan Instagram üzerinden iletişime geçebilirsiniz 👇<br>
+
+<a class="insta-btn" href="https://www.instagram.com/bybercant/" target="_blank">
+Instagram'dan Ulaş
+</a>
 `;
 }
 
