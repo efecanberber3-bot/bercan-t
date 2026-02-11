@@ -16,19 +16,19 @@
   top:0;
   width:100%;
   height:100%;
-  background:rgba(0,0,0,0.9);
+  background:rgba(0,0,0,0.92);
   overflow:auto;
 }
 
 .program-content{
   background:#111;
   margin:3% auto;
-  padding:35px;
+  padding:40px;
   width:95%;
   max-width:1100px;
   border-radius:20px;
   color:#ccc;
-  line-height:1.8;
+  line-height:1.9;
 }
 
 .program-content h2,
@@ -69,28 +69,24 @@
   color:black;
 }
 
-/* Instagram Buton */
 .insta-btn{
   display:inline-block;
-  margin-top:20px;
-  padding:12px 25px;
+  margin-top:25px;
+  padding:14px 30px;
   border-radius:30px;
   font-weight:bold;
   text-decoration:none;
   color:white;
-  background:linear-gradient(
-    45deg,
-    #feda75,
-    #fa7e1e,
-    #d62976,
-    #962fbf,
-    #4f5bd5
-  );
+  background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);
   transition:0.3s;
 }
 
 .insta-btn:hover{
   transform:scale(1.05);
+}
+
+.day{
+  margin-top:25px;
 }
 
 </style>
@@ -106,13 +102,12 @@
 
 <div class="grid">
 <div class="card" onclick="openModal('baslangic')">Başlangıç Programı</div>
-<div class="card" onclick="openModal('yag')">🔥 Yağ Yakımı(Orta Seviye)</div>
-<div class="card" onclick="openModal('kas')">Kas Geliştirme(İleri Seviye Hipertrofi Odaklı)</div>
+<div class="card" onclick="openModal('yag')">🔥 Yağ Yakımı</div>
+<div class="card" onclick="openModal('kas')">Kas Geliştirme</div>
 <div class="card" onclick="openModal('kocluk')">👤 Kişisel Koçluk</div>
 </div>
 </section>
 
-<!-- MODAL -->
 <div id="programModal" class="program-modal">
 <div class="program-content">
 <span class="close-program" onclick="closeModal()">&times;</span>
@@ -128,7 +123,7 @@ const body = document.getElementById("programBody");
 if(type === "baslangic"){
 body.innerHTML = `
 <h2>🏋️ Başlangıç Programı</h2>
-Haftada 4-5 Gün<br><br>
+<strong>Haftada 4-5 Gün</strong><br><br>
 
 Lat pulldown — 3x12<br>
 Seated low row — 3x12<br>
@@ -139,53 +134,119 @@ Cable biceps curl — 3x12<br>
 Cable triceps pushdown — 3x12<br>
 Leg extension — 3x12<br>
 Leg curl — 3x12<br>
-Hanging leg raise — 4 set tükeniş<br><br>
+Hanging leg raise — 4 set tükenişe kadar<br><br>
 
-🔥 30-45 dk kardiyo (Incline 15 / Speed 5)
+🔥 30-45 dk kardiyo<br>
+Incline: 15 | Speed: 5
 `;
 }
 
 if(type === "yag"){
 body.innerHTML = `
-<h2>🔥 Yağ Yakımı Programı</h2>
-12-15 tekrar | 30-45 sn dinlenme<br><br>
+<h2>🔥 YAĞ YAKIMI PROGRAMI (Orta Seviye)</h2>
 
-Pazartesi – Sırt + Arka Kol<br>
-Salı – Omuz + Ön Kol<br>
-Perşembe – Bacak<br>
-Cuma – Göğüs<br><br>
+👉 12-15 tekrar<br>
+👉 30-45 sn dinlenme<br>
+👉 Süpersetlerde dinlenme yok<br>
 
-Yağ yakımı için protein yüksek tut ve kalori açığı oluştur.
+<div class="day">
+<h3>🟢 Pazartesi – Sırt + Arka Kol</h3>
+Lat pulldown — 4x12<br>
+SUPERSET Rope pushdown — 4x15<br><br>
+Dumbbell row — 3x12<br>
+SUPERSET Close grip pushdown — 3x15<br><br>
+Straight arm pulldown — 3x15<br>
+🔥 10 dk incline yürüyüş
+</div>
+
+<div class="day">
+<h3>🟢 Salı – Omuz + Ön Kol</h3>
+Shoulder press — 4x12<br>
+SUPERSET Lateral raise + Front raise — 3x15<br>
+SUPERSET Rear delt machine + Barbell curl — 3x12<br>
+Preacher curl — 3x12<br>
+🔥 8 dk HIIT
+</div>
+
+<div class="day">
+<h3>🟢 Çarşamba – Aktif Dinlenme</h3>
+25-30 dk yürüyüş veya hafif cardio + core
+</div>
+
+<div class="day">
+<h3>🟢 Perşembe – Bacak</h3>
+Hack squat — 4x12<br>
+SUPERSET Leg extension + Leg curl — 3x15<br>
+Walking lunge — 3 tur<br>
+SUPERSET Leg press + Calf raise — 3x15<br>
+🔥 10 dk bisiklet sprint
+</div>
+
+<div class="day">
+<h3>🟢 Cuma – Göğüs</h3>
+Incline bench press — 4x12<br>
+SUPERSET Incline fly + Butterfly — 3x15<br>
+Bench press — 3x10<br>
+🔥 Battle rope 8 dk
+</div>
+
+<div class="day">
+<h3>🟢 Cumartesi – Kol + Metabolik</h3>
+SUPERSET Barbell curl + Skullcrusher — 4x12<br>
+SUPERSET Hammer curl + Rope pushdown — 3x15<br><br>
+🔥 3 tur:<br>
+Jump squat x15<br>
+Mountain climber 30 sn<br>
+Burpee x10
+</div>
+
+<h3>⚡ Yağ Yakım İpuçları</h3>
+Antrenman sonrası 15 dk yürüyüş<br>
+Protein yüksek tut<br>
+Kalori açığı oluştur ama aşırı düşürme
 `;
 }
 
 if(type === "kas"){
 body.innerHTML = `
-<h2>💪 Kas Geliştirme Programı</h2>
+<h2>💪 KAS GELİŞTİRME PROGRAMI</h2>
 
-Pazartesi: Göğüs + Omuz + Triceps<br>
-Salı: Sırt + Biceps<br>
-Çarşamba: Bacak<br>
-Cuma: Göğüs + Omuz + Triceps<br>
-Cumartesi: Sırt + Biceps + Bacak<br><br>
+<h3>🟦 Pazartesi (Göğüs + Omuz + Triceps)</h3>
+Plate Loaded Chest Press 2×5–6 (RIR1)<br>
+Smith Low Incline Press 2×5–6 (RIR1)<br>
+Chest Fly Machine 1×6–8 (Failure)<br>
+Shoulder Press Machine 2×5–6 (RIR1)<br>
+Lateral Raise 3×8–10 (Failure)<br>
+Triceps Pushdown 2×6–8 (Failure)<br>
+Overhead Rope Extension 2×8–10 (Failure)<br><br>
 
-RIR Sistemi uygulanır.<br>
-RIR 1 = 1 tekrar kalmış<br>
-RIR 0 = Failure
+<h3>🟦 Salı (Sırt + Biceps)</h3>
+Lat Pulldown 2×6–8 (RIR1 – Failure)<br>
+Wide Grip Row 3×6–8<br>
+Cable Row 1×8–10<br>
+Dumbbell Curl 2×6–8<br>
+Cable Curl 2×6–8<br>
+Hammer Curl + Reverse Barbell Curl 2×8–10 (SS)<br><br>
+
+<h3>🟦 Çarşamba (Bacak)</h3>
+Leg Press 2×6–8 (RIR1)<br>
+Smith Squat 2×6–8 (RIR1)<br>
+Leg Extension 2×8–10 (Failure)<br>
+Seated Leg Curl 3×8–10 (RIR1)<br><br>
+
+<h3>🔹 RIR Açıklama</h3>
+RIR 3 → 3 tekrar kalmış<br>
+RIR 2 → 2 tekrar kalmış<br>
+RIR 1 → 1 tekrar kalmış<br>
+RIR 0 → Failure
 `;
 }
 
 if(type === "kocluk"){
 body.innerHTML = `
 <h2>👤 Kişisel Koçluk</h2>
-
-Size özel birebir online koçluk sistemi.<br>
-• Beslenme planı<br>
-• Haftalık program güncelleme<br>
-• Performans takibi<br>
-• WhatsApp destek<br><br>
-
-Aşağıdan Instagram üzerinden iletişime geçebilirsiniz 👇<br>
+Birebir online koçluk sistemi.<br>
+Beslenme planı + Program takibi + Haftalık kontrol<br><br>
 
 <a class="insta-btn" href="https://www.instagram.com/bybercant/" target="_blank">
 Instagram'dan Ulaş
@@ -201,9 +262,8 @@ document.getElementById("programModal").style.display="none";
 }
 
 window.onclick = function(e){
-const modal = document.getElementById("programModal");
-if(e.target == modal){
-modal.style.display="none";
+if(e.target == document.getElementById("programModal")){
+closeModal();
 }
 }
 
