@@ -5,27 +5,200 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Programlar</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+.program-modal{
+  display:none;
+  position:fixed;
+  z-index:3000;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  overflow:auto;
+}
+
+.program-content{
+  background:#111;
+  margin:3% auto;
+  padding:35px;
+  width:95%;
+  max-width:1100px;
+  border-radius:20px;
+  color:#ccc;
+  line-height:1.8;
+}
+
+.program-content h2,
+.program-content h3{
+  color:#00e676;
+}
+
+.close-program{
+  float:right;
+  font-size:30px;
+  cursor:pointer;
+  color:#00e676;
+}
+
+.close-program:hover{
+  color:white;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+
+.card{
+  background:#1a1a1a;
+  padding:30px;
+  border-radius:15px;
+  text-align:center;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card:hover{
+  background:#00e676;
+  color:black;
+}
+
+</style>
 </head>
 <body>
 
 <div class="navbar">
   <a href="index.html" class="logo">💪 Ber can’t ⚡</a>
-  <div class="nav-links">
-    <a href="program.html">Programlar</a>
-    <a href="takip.html">Takip</a>
-    <a href="login.html">Giriş</a>
-  </div>
 </div>
 
 <section>
-  <h2>Programlar</h2>
-  <div class="grid">
-    <div class="card">Başlangıç Programı</div>
-    <div class="card">Yağ Yakımı(Orta Seviye)</div>
-    <div class="card">Kas Geliştirme(İleri Seviye ve Hipertrofi Odaklı)</div>
-    <div class="card">Kişisel Koçluk</div>
-  </div>
+<h2 style="text-align:center;">Programlar</h2>
+
+<div class="grid">
+<div class="card" onclick="openModal('baslangic')">Başlangıç Programı</div>
+<div class="card" onclick="openModal('yag')">🔥 Yağ Yakımı</div>
+<div class="card" onclick="openModal('kas')">Kas Geliştirme</div>
+</div>
 </section>
+
+<!-- MODAL -->
+<div id="programModal" class="program-modal">
+<div class="program-content">
+<span class="close-program" onclick="closeModal()">&times;</span>
+<div id="programBody"></div>
+</div>
+</div>
+
+<script>
+
+function openModal(type){
+const body = document.getElementById("programBody");
+
+if(type === "baslangic"){
+body.innerHTML = `
+<h2>🏋️ Başlangıç Programı</h2>
+<p><strong>Haftada 4-5 Gün</strong></p>
+
+Lat pulldown — 3x12<br>
+Seated low row — 3x12<br>
+Machine shoulder press — 3x12<br>
+Chest press — 3x12<br>
+Machine fly — 3x12<br>
+Cable biceps curl — 3x12<br>
+Cable triceps pushdown — 3x12<br>
+Leg extension — 3x12<br>
+Leg curl — 3x12<br>
+Hanging leg raise — 4 set tükeniş<br><br>
+
+🔥 30-45 dk kardiyo<br>
+Incline: 15 | Speed: 5
+`;
+}
+
+if(type === "yag"){
+body.innerHTML = `
+<h2>🔥 Yağ Yakımı Programı</h2>
+12-15 tekrar | 30-45 sn dinlenme<br><br>
+
+🟢 Pazartesi – Sırt + Arka Kol<br>
+Lat pulldown 4x12<br>
+Rope pushdown 4x15 (SS)<br>
+Dumbbell row 3x12<br>
+Close grip pushdown 3x15 (SS)<br>
+Straight arm pulldown 3x15<br><br>
+
+🟢 Salı – Omuz + Ön Kol<br>
+Shoulder press 4x12<br>
+Lateral + Front raise 3x15 (SS)<br>
+Rear delt + Barbell curl 3x12 (SS)<br>
+Preacher curl 3x12<br><br>
+
+🟢 Perşembe – Bacak<br>
+Hack squat 4x12<br>
+Leg extension + Leg curl 3x15 (SS)<br>
+Walking lunge 3 tur<br>
+Leg press + Calf raise 3x15<br><br>
+
+🟢 Cuma – Göğüs<br>
+Incline bench 4x12<br>
+Incline fly + Butterfly 3x15 (SS)<br>
+Bench press 3x10
+`;
+}
+
+if(type === "kas"){
+body.innerHTML = `
+<h2>💪 Kas Geliştirme Programı</h2>
+
+🟦 Pazartesi (Göğüs + Omuz + Triceps)<br>
+Plate Chest Press 2x5-6 (RIR1)<br>
+Smith Incline 2x5-6 (RIR1)<br>
+Chest Fly 1x6-8 (Failure)<br>
+Shoulder Press 2x5-6<br>
+Lateral Raise 3x8-10<br>
+Triceps Pushdown 2x6-8<br>
+Overhead Rope 2x8-10<br><br>
+
+🟦 Salı (Sırt + Biceps)<br>
+Lat Pulldown 2x6-8<br>
+Wide Grip Row 3x6-8<br>
+Cable Row 1x8-10<br>
+Dumbbell Curl 2x6-8<br>
+Cable Curl 2x6-8<br>
+Hammer + Reverse Curl 2x8-10 SS<br><br>
+
+🟦 Çarşamba (Bacak)<br>
+Leg Press 2x6-8<br>
+Smith Squat 2x6-8<br>
+Leg Extension 2x8-10<br>
+Seated Leg Curl 3x8-10<br><br>
+
+🔹 RIR Açıklama:<br>
+RIR 1 = 1 tekrar kalmış<br>
+RIR 0 = Failure
+`;
+}
+
+document.getElementById("programModal").style.display="block";
+}
+
+function closeModal(){
+document.getElementById("programModal").style.display="none";
+}
+
+window.onclick = function(e){
+const modal = document.getElementById("programModal");
+if(e.target == modal){
+modal.style.display="none";
+}
+}
+
+</script>
 
 </body>
 </html>
