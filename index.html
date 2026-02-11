@@ -1,54 +1,325 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ber Can’t Fitness | Ana Sayfa</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ber Can’t | Personal Trainer</title>
 
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#0a0a0a;
+  color:white;
+  scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+.navbar{
+  position:fixed;
+  width:100%;
+  top:0;
+  left:0;
+  background:#000;
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+}
+
+.navbar a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+  font-size:14px;
+}
+
+.navbar a:hover{
+  color:#00e676;
+}
+
+.logo{
+  color:#00e676;
+  font-weight:bold;
+  font-size:18px;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  background:url("https://images.unsplash.com/photo-1558611848-73f7eb4001ab") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.75);
+}
+
+.hero-content{
+  position:relative;
+  max-width:700px;
+  padding:20px;
+}
+
+.hero h1{
+  font-size:50px;
+  color:#00e676;
+  margin-bottom:15px;
+}
+
+.hero h3{
+  margin-bottom:20px;
+  font-weight:normal;
+}
+
+.hero p{
+  color:#ccc;
+  margin-bottom:30px;
+}
+
+.btn{
+  padding:12px 25px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  margin:10px;
+  display:inline-block;
+  transition:0.3s;
+}
+
+.btn-primary{
+  background:#00e676;
+  color:black;
+}
+
+.btn-primary:hover{
+  background:#00c853;
+}
+
+.btn-outline{
+  border:2px solid #00e676;
+  color:#00e676;
+}
+
+.btn-outline:hover{
+  background:#00e676;
+  color:black;
+}
+
+/* SECTION */
+section{
+  padding:100px 20px;
+  text-align:center;
+}
+
+/* FEATURES */
+.features-grid,
+.program-grid,
+.stats-grid{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:30px;
+  margin-top:40px;
+}
+
+.card{
+  background:#1a1a1a;
+  padding:25px;
+  border-radius:20px;
+  width:260px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  background:#222;
+}
+
+/* STATS */
+.stat h2{
+  font-size:40px;
+  color:#00e676;
+}
+
+.stat p{
+  color:#ccc;
+}
+
+/* FOOTER */
+.footer{
+  background:#000;
+  padding:60px 20px;
+}
+
+.footer-grid{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:40px;
+}
+
+.footer a{
+  text-decoration:none;
+  color:#aaa;
+  display:block;
+  margin-top:5px;
+}
+
+.footer a:hover{
+  color:#00e676;
+}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:40px;
+  color:#666;
+  font-size:14px;
+}
+
+/* ANIMATION */
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+</style>
+</head>
 <body>
 
-  <div class="container">
-
-    <div class="hero">
-      <h1>🏋️ BER CAN’T FITNESS</h1>
-      <p>Kişisel Antrenman & Online Takip Sistemi</p>
-    </div>
-
-    <div class="card">
-      <h3>Hoşgeldin 👋</h3>
-      <p>
-        Bu platform üzerinden antrenman programını görüntüleyebilir,
-        günlük su tüketimini ve beslenmeni takip edebilirsin.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>📌 Hızlı Erişim</h3>
-      <p>
-        Alt menüden:
-        <br><br>
-        🏋️ Program → Antrenman planını gör  
-        <br>
-        📊 Takip → Günlük kayıt oluştur  
-        <br>
-        👤 Profil → Koç bilgileri  
-      </p>
-    </div>
-
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">💪 Ber can’t ⚡</div>
+  <div>
+    <a href="#features">Neden Biz</a>
+    <a href="#programlar">Programlar</a>
+    <a href="#istatistik">İstatistik</a>
+    <a href="login.html">Giriş</a>
   </div>
+</div>
 
-  <!-- ALT MENÜ -->
-  <div class="bottom-nav">
-    <a href="index.html" class="active">🏠<br>Ana</a>
-    <a href="program.html">🏋️<br>Program</a>
-    <a href="takip.html">📊<br>Takip</a>
-    <a href="profil.html">👤<br>Profil</a>
-    <a href="admin.html">👑<br>Admin</a>
-
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content fade">
+    <h1>Ber can’t</h1>
+    <h3>Personal Trainer & Fitness Coach</h3>
+    <p>
+      Profesyonel antrenman programları, kişisel gelişim planları ve
+      gerçek sonuçlar için bugün gym yolculuğuna başla.
+    </p>
+    <a href="login.html" class="btn btn-primary">Hemen Başla</a>
+    <a href="#programlar" class="btn btn-outline">Kendine Özgü Programları Keşfet</a>
   </div>
+</section>
 
+<!-- FEATURES -->
+<section id="features">
+  <h2>⭐ Neden Biz?</h2>
+  <div class="features-grid">
+    <div class="card fade">💪 Profesyonel Programlar<br><br>Bilimsel temelli antrenman planları.</div>
+    <div class="card fade">⚡ Hızlı Sonuç<br><br>Performansını kısa sürede geliştir.</div>
+    <div class="card fade">🧠 Kişisel Gelişim<br><br>Vücut ve zihin birlikte gelişir.</div>
+    <div class="card fade">📈 İlerleme Takibi<br><br>Gelişimini adım adım takip et.</div>
+  </div>
+</section>
+
+<!-- PROGRAMLAR -->
+<section id="programlar">
+  <h2>🏋️ Hizmetler / Programlar</h2>
+  <div class="program-grid">
+    <div class="card fade">🔹 Kas Geliştirme<br><br>Kas kütlesini artırmaya yönelik programlar.</div>
+    <div class="card fade">🔹 Yağ Yakımı<br><br>Hızlı ve etkili yağ yakma planları.</div>
+    <div class="card fade">🔹 Fitness Başlangıç<br><br>Yeni başlayanlar için rehberli antrenman.</div>
+    <div class="card fade">🔹 Kişisel Koçluk<br><br>Birebir fitness danışmanlığı.</div>
+  </div>
+  <br>
+  <a href="program.html" class="btn btn-primary">Tüm Programları Gör</a>
+</section>
+
+<!-- ISTATISTIK -->
+<section id="istatistik">
+  <h2>📊 İstatistikler</h2>
+  <div class="stats-grid">
+    <div class="stat fade"><h2 class="counter" data-target="500">0</h2><p>Aktif Kullanıcı</p></div>
+    <div class="stat fade"><h2>%95</h2><p>Memnuniyet Oranı</p></div>
+    <div class="stat fade"><h2>Her Seviye</h2><p>Antrenman Programı</p></div>
+    <div class="stat fade"><h2>Uzman</h2><p>Koçluk Sistemi</p></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h3 style="color:#00e676;">Ber can’t</h3>
+      <p>Personal Trainer & Fitness Coach</p>
+    </div>
+    <div>
+      <h4>Kurumsal</h4>
+      <a href="#">Hakkımızda</a>
+      <a href="#">İletişim</a>
+      <a href="#">Gizlilik Politikası</a>
+    </div>
+    <div>
+      <h4>Sosyal Medya</h4>
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Ber can’t | Tüm Hakları Saklıdır
+  </div>
+</footer>
+
+<script>
+/* Fade animation */
+const faders = document.querySelectorAll('.fade');
+window.addEventListener('scroll', () => {
+  faders.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('show');
+    }
+  });
+});
+
+/* Counter animation */
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter=>{
+  const update = ()=>{
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    const inc = target / 100;
+    if(count < target){
+      counter.innerText = Math.ceil(count + inc);
+      setTimeout(update,20);
+    }else{
+      counter.innerText = target + "+";
+    }
+  }
+  update();
+});
+</script>
 
 </body>
 </html>
