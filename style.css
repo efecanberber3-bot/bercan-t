@@ -153,3 +153,55 @@ nav ul li a:hover{
   background:#000;
   color:#aaa;
 }
+/* SOSYAL MEDYA BUTONLARI */
+
+.social-buttons{
+  display:flex;
+  gap:15px;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
+.social-btn{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 18px;
+  border-radius:30px;
+  font-weight:bold;
+  text-decoration:none;
+  color:white;
+  transition:0.3s ease;
+  font-size:14px;
+}
+
+/* Instagram */
+.instagram{
+  background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);
+}
+
+.instagram:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 15px rgba(214,41,118,0.6);
+}
+
+/* YouTube */
+.youtube{
+  background:#ff0000;
+}
+
+.youtube:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 15px rgba(255,0,0,0.7);
+}
+
+/* TikTok */
+.tiktok{
+  background:#000;
+  border:1px solid #25f4ee;
+}
+
+.tiktok:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 15px #25f4ee;
+}
