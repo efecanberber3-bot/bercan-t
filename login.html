@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Giriş</title>
 <link rel="stylesheet" href="style.css">
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
 </head>
 <body>
 
@@ -15,33 +20,52 @@
 <section>
   <h2>Giriş Yap</h2>
   <form>
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Şifre">
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Şifre" required>
     <button class="btn btn-primary">Giriş Yap</button>
   </form>
 </section>
-<script>
-// Örnek geçerli kullanıcı bilgisi
-const validEmail = "test@example.com";
-const validPassword = "123456";
 
-// Formu seçiyoruz
+<script>
+// ----------------------
+// Firebase Konfigürasyonu
+// ----------------------
+const firebaseConfig = {
+  apiKey: "AIzaSyA6vXTR-ABEPRI1P181lNXB-8SfLCG0SWY",
+  authDomain: "bercant-fitness.firebaseapp.com",
+  projectId: "bercant-fitness",
+  storageBucket: "bercant-fitness.firebasestorage.app",
+  messagingSenderId: "1087173244977",
+  appId: "1:1087173244977:web:35e08a03cd786b43ee3d10",
+  measurementId: "G-P427TKHZ4V"
+};
+
+// Firebase başlat
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+// Form ve inputlar
 const form = document.querySelector("form");
 const emailInput = form.querySelector('input[type="email"]');
 const passwordInput = form.querySelector('input[type="password"]');
 
+// Giriş işlemi
 form.addEventListener("submit", function(e){
     e.preventDefault(); // Sayfanın yenilenmesini engelle
 
     const email = emailInput.value;
     const password = passwordInput.value;
 
-    if(email === validEmail && password === validPassword){
-        alert("Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz...");
-        window.location.href = "index.html"; // Ana sayfaya yönlendir
-    } else {
-        alert("Email veya şifre yanlış!");
-    }
+    auth.signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Giriş başarılı
+            alert("Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz...");
+            window.location.href = "index.html";
+        })
+        .catch((error) => {
+            // Hata mesajı
+            alert("Giriş başarısız: " + error.message);
+        });
 });
 </script>
 
