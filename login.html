@@ -20,6 +20,30 @@
     <button class="btn btn-primary">Giriş Yap</button>
   </form>
 </section>
+<script>
+// Örnek geçerli kullanıcı bilgisi
+const validEmail = "test@example.com";
+const validPassword = "123456";
+
+// Formu seçiyoruz
+const form = document.querySelector("form");
+const emailInput = form.querySelector('input[type="email"]');
+const passwordInput = form.querySelector('input[type="password"]');
+
+form.addEventListener("submit", function(e){
+    e.preventDefault(); // Sayfanın yenilenmesini engelle
+
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    if(email === validEmail && password === validPassword){
+        alert("Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz...");
+        window.location.href = "index.html"; // Ana sayfaya yönlendir
+    } else {
+        alert("Email veya şifre yanlış!");
+    }
+});
+</script>
 
 </body>
 </html>
