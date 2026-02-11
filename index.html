@@ -3,115 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ber can’t | Personal Trainer</title>
+<title>Ber can’t | Fitness</title>
 <link rel="stylesheet" href="style.css">
-</head>
 
+<style>
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  z-index:2000;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  overflow:auto;
+}
+
+.modal-content{
+  background:#111;
+  margin:5% auto;
+  padding:30px;
+  width:90%;
+  max-width:900px;
+  border-radius:15px;
+  color:#ccc;
+}
+
+.close{
+  float:right;
+  font-size:28px;
+  cursor:pointer;
+  color:#00e676;
+}
+.close:hover{
+  color:white;
+}
+
+.modal h3{
+  color:#00e676;
+  margin-top:20px;
+}
+</style>
+
+</head>
 <body>
 
-<header class="navbar">
-  <div class="logo">
-    <a href="index.html">💪 Ber can’t ⚡</a>
+<!-- NAVBAR -->
+<div class="navbar">
+  <a href="index.html" class="logo">💪 Ber can’t ⚡</a>
+  <div class="nav-links">
+    <a href="#" onclick="openModal()">İletişim</a>
+    <a href="program.html">Programlar</a>
+    <a href="takip.html">Takip</a>
+    <a href="login.html">Giriş</a>
   </div>
+</div>
 
-  <nav>
+<!-- HERO -->
+<section style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+  <h1 style="font-size:48px;color:#00e676;">Personal Trainer & Fitness Coach</h1>
+  <p style="max-width:700px;margin-top:20px;color:#ccc;font-size:18px;">
+    Profesyonel antrenman programları ve sürdürülebilir gelişim için bugün başla.
+  </p>
+  <div style="margin-top:30px;">
+    <a href="login.html" class="btn btn-primary">Hemen Başla</a>
+    <a href="program.html" class="btn btn-outline">Programları Keşfet</a>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div id="infoModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+
+    <h2>📩 İletişim</h2>
+    <p>
+      <strong style="color:#00e676;">yenelberkant@gmail.com</strong><br>
+      <strong style="color:#00e676;">efecanberber3@gmail.com</strong>
+    </p>
+
+    <hr style="margin:30px 0;border:1px solid #222;">
+
+    <h3>🔒 Gizlilik Politikası</h3>
+    <p>6698 sayılı KVKK kapsamında kişisel veriler korunmaktadır.</p>
     <ul>
-      <li><a href="program.html">Programlar</a></li>
-      <li><a href="takip.html">Takip</a></li>
-      <li><a href="#services">Hizmetler</a></li>
+      <li>Ad, Soyad</li>
+      <li>E-posta</li>
+      <li>IP & Cihaz bilgileri</li>
     </ul>
-  </nav>
-</header>
 
-<section class="hero">
-  <div class="hero-content">
-    <h1>💪 Ber can’t ⚡</h1>
-    <p>Profesyonel antrenman programları, kişisel gelişim planları ve gerçek sonuçlar için bugün gym yolculuğuna başla.</p>
+    <h3>📜 Kullanım Şartları</h3>
+    <p>Siteyi kullanarak şartları kabul etmiş sayılırsınız.</p>
 
-    <div class="hero-buttons">
-      <a href="program.html" class="btn-primary">Hemen Başla</a>
-      <a href="program.html" class="btn-secondary">Kendine Özgü Programları Keşfet</a>
-    </div>
+    <h3>👤 Üyelik Sözleşmesi</h3>
+    <p>Üyelik kişiye özeldir ve hesap paylaşımı yasaktır.</p>
+
+    <h3>🍪 Çerez Politikası</h3>
+    <p>Çerezler kullanıcı deneyimini iyileştirmek için kullanılır.</p>
+
   </div>
-</section>
+</div>
 
-<section class="features">
-  <h2>⭐ Neden Biz?</h2>
-
-  <div class="feature-grid">
-    <div class="feature-card">
-      <h3>💪 Profesyonel Programlar</h3>
-      <p>Bilimsel temelli antrenman planları.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>⚡ Hızlı Sonuç</h3>
-      <p>Performansını kısa sürede geliştir.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>🧠 Kişisel Gelişim</h3>
-      <p>Vücut ve zihin birlikte gelişir.</p>
-    </div>
-
-    <div class="feature-card">
-      <h3>📈 İlerleme Takibi</h3>
-      <p>Gelişimini adım adım takip et.</p>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="services">
-  <h2>🏋️ Hizmetler / Programlar</h2>
-
-  <div class="service-grid">
-    <div class="service-card">
-      <h3>🔹 Kas Geliştirme</h3>
-      <p>Kas kütlesini artırmaya yönelik programlar.</p>
-    </div>
-
-    <div class="service-card">
-      <h3>🔹 Yağ Yakımı</h3>
-      <p>Hızlı ve etkili yağ yakma planları.</p>
-    </div>
-
-    <div class="service-card">
-      <h3>🔹 Fitness Başlangıç Programı</h3>
-      <p>Yeni başlayanlar için rehberli antrenman.</p>
-    </div>
-
-    <div class="service-card">
-      <h3>🔹 Kişisel Koçluk</h3>
-      <p>Birebir fitness ve body building danışmanlığı.</p>
-    </div>
-  </div>
-</section>
-
-<section class="stats">
-  <div class="stat-box">
-    <h3>500+</h3>
-    <p>Aktif Kullanıcı</p>
-  </div>
-
-  <div class="stat-box">
-    <h3>%95</h3>
-    <p>Memnuniyet Oranı</p>
-  </div>
-
-  <div class="stat-box">
-    <h3>Her Seviye</h3>
-    <p>Antrenman Programı</p>
-  </div>
-
-  <div class="stat-box">
-    <h3>Uzman</h3>
-    <p>Koçluk Sistemi</p>
-  </div>
-</section>
-
+<!-- FOOTER -->
 <footer class="footer">
-  <p>© 2026 Ber can’t | Personal Trainer & Fitness Coach</p>
+  <div class="footer-grid">
+    <div>
+      <h3 style="color:#00e676;">Ber can’t</h3>
+      <p>Personal Trainer & Fitness Coach</p>
+    </div>
+
+    <div>
+      <a href="#" onclick="openModal()">İletişim & Gizlilik</a>
+    </div>
+
+    <div>
+      <h4>Sosyal Medya</h4>
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Ber can’t | Tüm Hakları Saklıdır
+  </div>
 </footer>
+
+<script>
+function openModal(){
+  document.getElementById("infoModal").style.display = "block";
+}
+
+function closeModal(){
+  document.getElementById("infoModal").style.display = "none";
+}
+
+window.onclick = function(event){
+  const modal = document.getElementById("infoModal");
+  if(event.target == modal){
+    modal.style.display = "none";
+  }
+}
+</script>
 
 </body>
 </html>
