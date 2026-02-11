@@ -1,14 +1,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut }
+import { getAuth, signInWithEmailAndPassword }
 from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "BURAYA_KENDI_API_KEY",
+  apiKey: "AIzaSyA6vXTR-ABEPRI1P181lNXB-8SfLCG0SWY",
   authDomain: "bercant-fitness.firebaseapp.com",
   projectId: "bercant-fitness",
-  storageBucket: "bercant-fitness.appspot.com",
-  messagingSenderId: "XXXX",
-  appId: "XXXX"
+  storageBucket: "bercant-fitness.firebasestorage.app",
+  messagingSenderId: "1087173244977",
+  appId: "1:1087173244977:web:35e08a03cd786b43ee3d10",
+  measurementId: "G-P427TKHZ4V"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -20,13 +21,10 @@ window.login = async function(){
 
   try {
     await signInWithEmailAndPassword(auth, email, password);
+    alert("Giriş başarılı ✅");
     window.location.href = "takip.html";
   } catch (error) {
-    alert("Giriş başarısız");
+    alert("Hata: " + error.message);
   }
 };
 
-window.logout = function(){
-  signOut(auth);
-  window.location.href = "login.html";
-};
