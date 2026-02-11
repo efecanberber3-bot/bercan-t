@@ -197,3 +197,19 @@ form{
   transform:scale(1.08);
   box-shadow:0 0 15px #25f4ee;
 }
+section::before {
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.5);
+    z-index:1;
+}
+
+section > * {
+    position: relative;
+    z-index: 2;
+}
+
