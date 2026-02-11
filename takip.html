@@ -1,62 +1,31 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ber Can’t Fitness | Günlük Takip</title>
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Firebase -->
-<script type="module" src="app.js"></script>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Takip</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <div class="container">
-
-    <div class="hero">
-      <h1>📊 Günlük Takip</h1>
-      <p>Su • Takviye • Beslenme</p>
-    </div>
-
-    <div class="card">
-      <input id="name" placeholder="Ad Soyad" />
-      <input id="water" type="number" placeholder="Su (Litre)" />
-      <input id="supp" placeholder="Takviyeler" />
-      <textarea id="food" placeholder="Yenilen yemekler / not"></textarea>
-      <button onclick="saveData()">Kaydet</button>
-    </div>
-
-    <div class="card">
-      <h3>Kayıtlarım</h3>
-      <div id="records"></div>
-    </div>
-
+<div class="navbar">
+  <a href="index.html" class="logo">💪 Ber can’t ⚡</a>
+  <div class="nav-links">
+    <a href="program.html">Programlar</a>
+    <a href="takip.html">Takip</a>
   </div>
+</div>
 
-  <!-- ALT MENÜ -->
-  <div class="bottom-nav">
-    <a href="index.html">🏠<br>Ana</a>
-    <a href="program.html">🏋️<br>Program</a>
-    <a href="takip.html" class="active">📊<br>Takip</a>
-    <a href="profil.html">👤<br>Profil</a>
-  </div>
-<script type="module">
-import { getAuth, onAuthStateChanged }
-from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-
-const auth = getAuth();
-
-onAuthStateChanged(auth, (user) => {
-  if (!user) {
-    window.location.href = "login.html";
-  }
-});
-</script>
-
-  <!-- JS -->
-  <script src="app.js"></script>
+<section>
+  <h2>Günlük Takip</h2>
+  <form>
+    <input type="date">
+    <input type="number" placeholder="Su Tüketimi (Litre)">
+    <textarea placeholder="Yenilen Yemekler"></textarea>
+    <textarea placeholder="Takviyeler"></textarea>
+    <button class="btn btn-primary">Kaydet</button>
+  </form>
+</section>
 
 </body>
 </html>
