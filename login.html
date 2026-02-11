@@ -9,37 +9,17 @@
 <body>
 
 <div class="navbar">
-  <a href="login.html" class="logo">💪 Ber can’t ⚡</a>
+  <a href="index.html" class="logo">💪 Ber can’t ⚡</a>
 </div>
 
 <section>
   <h2>Giriş Yap</h2>
-  <form id="loginForm">
-    <input type="email" id="email" placeholder="Email" required>
-    <input type="password" id="password" placeholder="Şifre" required>
-    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+  <form>
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Şifre">
+    <button class="btn btn-primary">Giriş Yap</button>
   </form>
 </section>
-
-<script>
-// Örnek kullanıcı bilgisi
-const validEmail = "test@example.com";
-const validPassword = "123456";
-
-document.getElementById("loginForm").addEventListener("submit", function(e){
-    e.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
-
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    if(email === validEmail && password === validPassword){
-        alert("Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz...");
-        window.location.href = "index.html"; // Ana sayfaya yönlendir
-    } else {
-        alert("Email veya şifre yanlış!");
-    }
-});
-</script>
 
 </body>
 </html>
