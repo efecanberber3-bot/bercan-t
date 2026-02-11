@@ -1,112 +1,96 @@
-/* HERO SECTION */
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ber can’t | Personal Trainer</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
-.hero{
-  height:100vh;
-  background:url("images/hero.jpeg") center center/cover no-repeat;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:white;
-  overflow:hidden;
-}
+<body>
 
-/* Karartma + Hafif Blur */
-.hero::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.85));
-  backdrop-filter: blur(2px);
-}
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">
+    <a href="index.html">💪 Ber can’t ⚡</a>
+  </div>
 
-/* İçerik */
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:800px;
-  padding:20px;
-  animation: fadeUp 1.2s ease forwards;
-  opacity:0;
-}
+  <nav>
+    <ul>
+      <li><a href="program.html">Programlar</a></li>
+      <li><a href="takip.html">Takip</a></li>
+      <li><a href="#features">Hizmetler</a></li>
+    </ul>
+  </nav>
+</header>
 
-/* Başlık */
-.hero h1{
-  font-size:52px;
-  margin-bottom:20px;
-  color:#00e676;
-  letter-spacing:2px;
-}
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Gücünü Keşfet</h1>
+    <p>Profesyonel antrenman programları, kişisel gelişim planları ve gerçek sonuçlar için bugün gym yolculuğuna başla.</p>
 
-/* Açıklama */
-.hero p{
-  font-size:20px;
-  margin-bottom:35px;
-  color:#ddd;
-  line-height:1.6;
-}
+    <div class="hero-buttons">
+      <a href="program.html" class="btn-primary">Hemen Başla</a>
+      <a href="program.html" class="btn-secondary">Programları Keşfet</a>
+    </div>
+  </div>
+</section>
 
-/* Butonlar */
-.hero-buttons{
-  display:flex;
-  gap:20px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
+<!-- FEATURES -->
+<section id="features" class="features">
+  <h2>Neden Biz?</h2>
 
-.btn-primary{
-  padding:14px 32px;
-  background:#00e676;
-  color:black;
-  border-radius:40px;
-  text-decoration:none;
-  font-weight:bold;
-  transition:0.3s;
-}
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>💪 Profesyonel Programlar</h3>
+      <p>Bilimsel temelli antrenman planları.</p>
+    </div>
 
-.btn-primary:hover{
-  background:white;
-  transform:scale(1.05);
-}
+    <div class="feature-card">
+      <h3>⚡ Hızlı Sonuç</h3>
+      <p>Performansını kısa sürede geliştir.</p>
+    </div>
 
-.btn-secondary{
-  padding:14px 32px;
-  border:2px solid #00e676;
-  color:#00e676;
-  border-radius:40px;
-  text-decoration:none;
-  font-weight:bold;
-  transition:0.3s;
-}
+    <div class="feature-card">
+      <h3>🧠 Kişisel Gelişim</h3>
+      <p>Vücut ve zihin birlikte gelişir.</p>
+    </div>
 
-.btn-secondary:hover{
-  background:#00e676;
-  color:black;
-  transform:scale(1.05);
-}
+    <div class="feature-card">
+      <h3>📈 İlerleme Takibi</h3>
+      <p>Gelişimini adım adım takip et.</p>
+    </div>
+  </div>
+</section>
 
-/* Animasyon */
-@keyframes fadeUp{
-  from{
-    transform:translateY(40px);
-    opacity:0;
-  }
-  to{
-    transform:translateY(0);
-    opacity:1;
-  }
-}
+<!-- STATS -->
+<section class="stats">
+  <div class="stat-box">
+    <h3>500+</h3>
+    <p>Aktif Kullanıcı</p>
+  </div>
 
-/* Mobil */
-@media(max-width:768px){
-  .hero h1{
-    font-size:34px;
-  }
-  .hero p{
-    font-size:16px;
-  }
-}
+  <div class="stat-box">
+    <h3>%95</h3>
+    <p>Memnuniyet</p>
+  </div>
+
+  <div class="stat-box">
+    <h3>Her Seviye</h3>
+    <p>Antrenman Programı</p>
+  </div>
+
+  <div class="stat-box">
+    <h3>Uzman</h3>
+    <p>Koçluk Sistemi</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 Ber can’t | Personal Trainer & Fitness Coach</p>
+</footer>
+
+</body>
+</html>
