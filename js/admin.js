@@ -3,6 +3,7 @@
   const $=id=>document.getElementById(id), today=()=>new Date().toISOString().slice(0,10), initials=n=>String(n||'?').split(/\s+/).slice(0,2).map(x=>x[0]).join('').toUpperCase();
   const goalNames={fat_loss:'Yağ yakımı',muscle_gain:'Kas gelişimi',recomposition:'Rekompozisyon',performance:'Performans'};
   const genderNames={male:'Erkek',female:'Kadın',unspecified:'Belirtilmemiş'};
+  const isCoachOrAdmin=()=>['coach','admin'].includes(profile?.role);
 
   function setupUI(){
     Bercant.setupSidebar(); $('logout-btn').addEventListener('click',Bercant.signOut); $('refresh-btn').addEventListener('click',load);
@@ -39,7 +40,7 @@
 
   function renderStudents(){
     const q=$('search-filter').value.toLowerCase().trim(),g=$('gender-filter').value,goal=$('goal-filter').value;const list=students.filter(s=>(!q||`${s.full_name} ${s.email}`.toLowerCase().includes(q))&&(g==='all'||s.gender===g)&&(goal==='all'||s.goal===goal));$('student-count').textContent=`${list.length} öğrenci`;
-    $('students-body').innerHTML=list.map(s=>{const last=lastLog(s.id),remaining=daysUntil(s.membership_end),active=s.active!==false&&remaining>=0;return `<tr><td><div class="student-cell"><div class="avatar ${s.gender==='female'?'female':''}">${initials(s.full_name)}</div><div><strong>${s.full_name||'İsimsiz'}</strong><div class="tiny muted">${s.email||''}</div></div></div></td><td><span class="badge ${s.gender==='female'?'purple':'neutral'}">${genderNames[s.gender]||'—'}</span></td><td>${goalNames[s.goal]||'—'}</td><td>${last?Bercant.formatDate(last.log_date,{day:'2-digit',month:'short'}):'<span class="muted">Yok</span>'}</td><td><span class="badge ${active?'':'danger'}">${active?(remaining===999?'Aktif':`${remaining} gün`):'Pasif'}</span></td><td><button class="btn btn-secondary btn-sm" data-student="${s.id}">İncele</button></td></tr>`}).join('')||'<tr><td colspan="6">Filtreye uygun öğrenci bulunamadı.</td></tr>';
+    $('students-body').innerHTML=list.map(s=>{const last=lastLog(s.id),remaining=daysUntil(s.membership_end),active=s.active!==false&&remaining>=0;return `<tr><td><div class="student-cell"><div class="avatar ${s.gender==='female'?'female':''}">${initials(s.full_name)}</div><div><strong>${s.full_name||'İsimsiz'}</strong><div class="tiny muted">${s.email||''}</div></div></div></td><td><span class="badge ${s.gender==='female'?'purple':'neutral'}">${genderNames[s.gender]||'—'}</span></td><td>${goalNames[s.goal]||'—'}</td><td>${last?Bercant.formatDate(last.log_date,{day:'2-digit',month:'short'}):'<span class="muted">Yok</span>'}</td><td><span class="badge ${active?'':'danger'}">${active?(remaining===999?'Aktif':`${remaining} gün`):'Pasif'}</span></td><td><button class="btn btn-secondary btn-sm" data-student="${s.id}">İncele</button></td></tr>`}).join('')||`<tr><td colspan="6">${students.length ? 'Filtreye uygun öğrenci bulunamadı.' : (isCoachOrAdmin() ? 'Henüz görünen öğrenci yok. Supabase koç erişim SQL düzeltmesi çalıştırılmadıysa öğrenciler görünmeyebilir.' : 'Öğrenci bulunamadı.')}</td></tr>`;
     document.querySelectorAll('[data-student]').forEach(b=>b.addEventListener('click',()=>openStudent(b.dataset.student)));
   }
 

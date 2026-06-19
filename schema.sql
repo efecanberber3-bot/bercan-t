@@ -179,10 +179,9 @@ language sql stable security definer
 set search_path = public
 as $$
   select coalesce(
-    public.current_user_role() = 'admin'
-    or (public.current_user_role() = 'coach' and exists (
-      select 1 from public.profiles p where p.id = target_user and p.coach_id = auth.uid()
-    )), false
+    public.current_user_role() in ('coach','admin')
+    or auth.uid() = target_user,
+    false
   );
 $$;
 
